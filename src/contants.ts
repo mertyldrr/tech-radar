@@ -4,65 +4,301 @@ export const radarConfig = {
   height: 1000,
   colors: {
     background: "#fff",
-    grid: "#bbb",
+    grid: "#dddde0",
     inactive: "#ddd",
   },
-  title: "My Radar",
+  title: "BMWsd Tech Radar",
+  date: "2023.06",
   quadrants: [
-    { name: "Bottom Right" },
-    { name: "Bottom Left" },
-    { name: "Top Left" },
-    { name: "Top Right" },
+    { name: "Languages" },
+    { name: "Infrastructure" },
+    { name: "Datastores" },
+    { name: "Data Management" },
   ],
   rings: [
-    { name: "INNER", color: "#5ba300" },
-    { name: "SECOND", color: "#009eb0" },
-    { name: "THIRD", color: "#c7ba00" },
-    { name: "OUTER", color: "#e09b96" },
+    { name: "ADOPT", color: "#5ba300" },
+    { name: "TRIAL", color: "#009eb0" },
+    { name: "ASSESS", color: "#c7ba00" },
+    { name: "HOLD", color: "#e09b96" },
   ],
   print_layout: true,
   links_in_new_tabs: true,
   entries: [
     {
-      label: "Some Entry",
-      quadrant: 3, // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 2, // 0,1,2,3 (starting from inside)
-      moved: -1, // -1 = moved out (triangle pointing down)
-      //  0 = not moved (circle)
-      //  1 = moved in  (triangle pointing up)
+      quadrant: 3,
+      ring: 2,
+      label: "AWS Athena",
+      active: true,
+      moved: 0,
     },
     {
-      label: "Some Entry",
-      quadrant: 1, // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 2, // 0,1,2,3 (starting from inside)
-      moved: -1, // -1 = moved out (triangle pointing down)
-      //  0 = not moved (circle)
-      //  1 = moved in  (triangle pointing up)
+      quadrant: 3,
+      ring: 3,
+      label: "AWS Data Pipeline",
+      active: true,
+      moved: 0,
     },
     {
-      label: "Some Entry",
-      quadrant: 2, // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 3, // 0,1,2,3 (starting from inside)
-      moved: -1, // -1 = moved out (triangle pointing down)
-      //  0 = not moved (circle)
-      //  1 = moved in  (triangle pointing up)
+      quadrant: 3,
+      ring: 0,
+      label: "AWS EMR",
+      active: true,
+      moved: 0,
     },
     {
-      label: "Some Entry",
-      quadrant: 2, // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 3, // 0,1,2,3 (starting from inside)
-      moved: -1, // -1 = moved out (triangle pointing down)
-      //  0 = not moved (circle)
-      //  1 = moved in  (triangle pointing up)
+      quadrant: 3,
+      ring: 2,
+      label: "AWS Glue",
+      active: true,
+      moved: 0,
     },
     {
-      label: "Some Entry",
-      quadrant: 2, // 0,1,2,3 (counting clockwise, starting from bottom right)
-      ring: 3, // 0,1,2,3 (starting from inside)
-      moved: -1, // -1 = moved out (triangle pointing down)
-      //  0 = not moved (circle)
-      //  1 = moved in  (triangle pointing up)
+      quadrant: 3,
+      ring: 0,
+      label: "Airflow",
+      active: true,
+      moved: 0,
     },
-    // ...
+
+    {
+      quadrant: 3,
+      ring: 0,
+      label: "Spark",
+      link: "https://engineering.zalando.com/tags/apache-spark.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 3,
+      ring: 3,
+      label: "YARN",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 3,
+      ring: 2,
+      label: "dbt",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 0,
+      label: "AWS DynamoDB",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 0,
+      label: "AWS S3",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 3,
+      label: "Aerospike",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 2,
+      label: "Amazon MemoryDB",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 1,
+      label: "Amazon Redshift",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 1,
+      label: "Amazon Feature Store",
+      active: true,
+      moved: 1,
+    },
+    {
+      quadrant: 2,
+      ring: 3,
+      label: "Apache Cassandra",
+      link: "https://engineering.zalando.com/tags/cassandra.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 3,
+      label: "Consul",
+      active: true,
+      moved: 0,
+    },
+
+    {
+      quadrant: 2,
+      ring: 3,
+      label: "HBase",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 1,
+      label: "HDFS",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 2,
+      label: "RocksDB",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 2,
+      ring: 3,
+      label: "Solr",
+      active: true,
+      moved: 0,
+    },
+
+    {
+      quadrant: 1,
+      ring: 0,
+      label: "Amazon SageMaker",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 0,
+      label: "Docker",
+      link: "https://engineering.zalando.com/tags/docker.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 0,
+      label: "Kubernetes",
+      link: "https://engineering.zalando.com/tags/kubernetes.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 0,
+      label: "OpenTracing",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 3,
+      label: "STUPS",
+      link: "https://engineering.zalando.com/tags/stups.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 2,
+      label: "WebAssembly",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 1,
+      ring: 3,
+      label: "ZMON",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 3,
+      label: "Clojure",
+      link: "https://engineering.zalando.com/tags/clojure.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 1,
+      label: "Dart",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "Go",
+      link: "https://engineering.zalando.com/tags/golang.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "GraphQL",
+      link: "https://engineering.zalando.com/tags/graphql.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 3,
+      label: "Haskell",
+      link: "https://engineering.zalando.com/tags/haskell.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "Java",
+      link: "https://engineering.zalando.com/tags/java.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "JavaScript",
+      link: "https://engineering.zalando.com/tags/javascript.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "Kotlin",
+      link: "https://engineering.zalando.com/tags/kotlin.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 0,
+      ring: 0,
+      label: "OpenAPI (Swagger)",
+      link: "https://engineering.zalando.com/tags/openapi.html",
+      active: true,
+      moved: 0,
+    },
+    {
+      quadrant: 3,
+      ring: 1,
+      label: "RabbitMQ",
+      link: "https://engineering.zalando.com/tags/rabbitmq.html",
+      active: true,
+      moved: 0,
+    },
   ],
 };
