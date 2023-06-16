@@ -200,6 +200,15 @@ export function radar_visualization(config) {
     .attr("height", config.height);
 
   var radar = svg.append("g");
+  var svgElement = document.querySelector("svg#" + config.svg_id);
+
+  if (svgElement) {
+    var children = svgElement.children;
+
+    if (children.length > 1) {
+      svgElement.removeChild(children[0]);
+    }
+  }
   if ("zoomed_quadrant" in config) {
     svg.attr("viewBox", viewbox(config.zoomed_quadrant));
   } else {
@@ -256,7 +265,7 @@ export function radar_visualization(config) {
         .attr("y", -rings[i].radius + 62)
         .attr("text-anchor", "middle")
         .style("fill", config.rings[i].color)
-        .style("opacity", 0.35)
+        .style("opacity", config.darkMode ? "0.9" : "0.45")
         .style("font-family", "Arial, Helvetica")
         .style("font-size", "42px")
         .style("font-weight", "bold")
@@ -286,7 +295,8 @@ export function radar_visualization(config) {
       .text(config.title)
       .style("font-family", "Arial, Helvetica")
       .style("font-size", "30")
-      .style("font-weight", "bold");
+      .style("font-weight", "bold")
+      .style("fill", config.darkMode ? "#d1d5db" : "black");
 
     // date
     radar
@@ -295,7 +305,7 @@ export function radar_visualization(config) {
       .text(config.date || "")
       .style("font-family", "Arial, Helvetica")
       .style("font-size", "14")
-      .style("fill", "#999");
+      .style("fill", config.darkMode ? "#999" : "black");
 
     // footer
     radar
@@ -304,7 +314,8 @@ export function radar_visualization(config) {
       .text("▲ moved up     ▼ moved down")
       .attr("xml:space", "preserve")
       .style("font-family", "Arial, Helvetica")
-      .style("font-size", "10px");
+      .style("font-size", "10px")
+      .style("fill", config.darkMode ? "#ccc" : "black");
 
     // legend
     var legend = radar.append("g");
@@ -318,7 +329,8 @@ export function radar_visualization(config) {
         .text(config.quadrants[quadrant].name)
         .style("font-family", "Arial, Helvetica")
         .style("font-size", "18px")
-        .style("font-weight", "bold");
+        .style("font-weight", "bold")
+        .style("fill", config.darkMode ? "#d1d5db" : "black");
       for (var ring = 0; ring < 4; ring++) {
         legend
           .append("text")
@@ -333,11 +345,11 @@ export function radar_visualization(config) {
           .data(segmented[quadrant][ring])
           .enter()
           .append("a")
-          .attr("href", function (d, i) {
+          .attr("href", function (d) {
             return d.link ? d.link : "#"; // stay on same page if no link was provided
           })
           // Add a target if (and only if) there is a link and we want new tabs
-          .attr("target", function (d, i) {
+          .attr("target", function (d) {
             return d.link && config.links_in_new_tabs ? "_blank" : null;
           })
           .append("text")
@@ -345,14 +357,15 @@ export function radar_visualization(config) {
             return legend_transform(quadrant, ring, i);
           })
           .attr("class", "legend" + quadrant + ring)
-          .attr("id", function (d, i) {
+          .attr("id", function (d) {
             return "legendItem" + d.id;
           })
-          .text(function (d, i) {
+          .text(function (d) {
             return d.id + ". " + d.label;
           })
           .style("font-family", "Arial, Helvetica")
           .style("font-size", "11px")
+          .style("fill", config.darkMode ? "#d1d5db" : "black")
           .on("mouseover", function (d) {
             showBubble(d);
             highlightLegendItem(d);
@@ -404,11 +417,8 @@ export function radar_visualization(config) {
     }
   }
 
-  function hideBubble(d) {
-    var bubble = d3
-      .select("#bubble")
-      .attr("transform", translate(0, 0))
-      .style("opacity", 0);
+  function hideBubble() {
+    d3.select("#bubble").attr("transform", translate(0, 0)).style("opacity", 0);
   }
 
   function highlightLegendItem(d) {
@@ -480,7 +490,7 @@ export function radar_visualization(config) {
         .attr("text-anchor", "middle")
         .style("fill", "#fff")
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", function (d) {
+        .style("font-size", function () {
           return blip_text.length > 2 ? "8px" : "9px";
         })
         .style("pointer-events", "none")
