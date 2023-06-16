@@ -14,14 +14,14 @@ A Tech Radar is a visual tool or framework that provides a snapshot of the curre
 
 ## Features
 
-- Adding a new technology to the Tech Radar.
+- Adding new technology to the Tech Radar.
 - It is possible to clear Tech Radar.
-- This custom Tech Radar tracks history and it is possible to restore last 5 versions of your Tech Radar.
+- This custom Tech Radar tracks history and it is possible to restore the last 5 versions of your Tech Radar.
 
 ## Installation and Usage
 
 1. Clone the repository: `git clone https://github.com/mertyldrr/tech-radar.git`
-2. Change to the project directory: `cd your-repo`
+2. Change to the project directory: `cd tech-radar`
 3. Install dependencies using: `yarn`
 4. Run project locally using: `yarn run dev`
 5. Open your browser and visit: `http://localhost:5173`
