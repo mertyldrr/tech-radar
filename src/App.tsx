@@ -143,7 +143,7 @@ function App() {
       <div className="flex justify-center items-center py-3 w-full bg">
         <Dialog>
           <DialogTrigger className="rounded-md font-bold bg-[#0166B1] px-4 py-3 text-white">
-            Customise
+            Customize Tech Radar
           </DialogTrigger>
           <DialogContent className="bg-[#0166B1]">
             <Tabs
