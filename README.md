@@ -7,7 +7,6 @@ This project is an extension of [Zalando's Tech Radar](https://github.com/zaland
 - [What is Tech Radar](#what-is-tech-radar)
 - [Features](#features)
 - [Installation and Usage](#installation-and-usage)
-- [Usage](#usage)
 - [License](#license)
 
 ## What is Tech Radar
